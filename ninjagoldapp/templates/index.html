@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ninjagold</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+</head>
+
+<body>
+    <p>Your Gold: {{request.session.gold}}</p>
+
+    <div class='container'>
+        <div class='formBox'>
+            <h3>Farm</h3>
+            <p>(earns 10-20 gold)</p>
+            <form action="process_money/" method="post">
+                {% csrf_token %}
+                <input name='Farm' value='10,20' type='hidden'>
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class='formBox'>
+            <h3>Cave</h3>
+            <p>(earns 5-10 gold)</p>
+            <form action="process_money/" method="post">
+                {% csrf_token %}
+                <input name='Cave' value='5,10' type='hidden'>
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class='formBox'>
+            <h3>House</h3>
+            <p>(earns 2-5 gold)</p>
+            <form action="process_money/" method="post">
+                {% csrf_token %}
+                <input name='House' value='2,5' type='hidden'>
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+        <div class='formBox'>
+            <h3>Casino</h3>
+            <p>(earns/takes 0-50 gold)</p>
+            <form action="process_money/" method="post">
+                {% csrf_token %}
+                <input name='Casino' value='-50,50' type='hidden'>
+                <input type="submit" value="Find Gold!">
+            </form>
+        </div>
+    </div> <!-- End formContainer-->
+
+    <p>Activities:</p>
+    <div class='container'>
+        <textarea readonly name="message" rows="10" cols="100">The cat was playing in the garden.</textarea>
+    </div>
+
+</body>
+
+</html>

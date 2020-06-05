@@ -1,0 +1,18 @@
+p {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.formBox {
+    text-align: center;
+    min-width: 200px;
+    min-height: 125px;
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
